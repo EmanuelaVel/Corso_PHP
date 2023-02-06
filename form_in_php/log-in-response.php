@@ -1,22 +1,20 @@
-<h1> sono la risposta (RESPONSE) </h1>
-
 <?php
 
-echo "get:Array";
+/**
+ *  $ -< variabile  (se non metti $ lui capisce cstante indefinita)
+ * " "/' '  -> stringa
+ * CICCIO 
+ */
 
-echo"<pre>";
-print_r($_GET);
-echo"</pre>";
+/** tutte le costanti sono globali,  */
 
-echo "post:Array";
+// [] hanno il significato di opzionale
+$test = filter_input(INPUT_GET, 'email' ,  FILTER_VALIDATE_EMAIL);
 
-echo"<pre>";
-print_r($_POST);
-echo"</pre>";
-
-echo "La tua email è <br>";
-
-//se sto entrando con il metodo post posso scrivre:$_POST
-echo "<strong>".$_POST ['email']."</strong>";
-
+// == === è lo stesso signuificato javascript
+if($test === false) {
+    echo "\nla mail non è valida\n";
+} else {
+    echo "grazie la tua email è valida: $test";
+}
 ?>
