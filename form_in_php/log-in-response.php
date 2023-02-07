@@ -1,17 +1,15 @@
 <?php
 
 /**
- *  $ -< variabile  (se non metti $ lui capisce cstante indefinita)
+ *  $ -< variabile  
  * " "/' '  -> stringa
  * CICCIO 
  */
 
-/** tutte le costanti sono globali,  */
 
-// [] hanno il significato di opzionale
 $test = filter_input(INPUT_GET, 'email' ,  FILTER_VALIDATE_EMAIL);
 
-// == === è lo stesso signuificato javascript
+// == === è lo stesso significato javascript
 if($test === false) {
     echo "\nla mail non è valida\n";
 } else {
