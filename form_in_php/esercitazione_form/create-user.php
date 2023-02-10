@@ -12,21 +12,21 @@
 <body>
     <!-- Form di registrazione PHP
 
-usare bootstrap
-usare filter_input per ottenere le informazioni
+        usare bootstrap
+        usare filter_input per ottenere le informazioni
 
-create-user.php
-    - nome first_name 
-    - cognome last_name
-    - data di nascita birthday
-    - luogo di nascita birth_place
-    - sesso(M/F) gender
-    
-    - nome utente username
-    - password  password
+        create-user.php
+            - nome first_name 
+            - cognome last_name
+            - data di nascita birthday
+            - luogo di nascita birth_place
+            - sesso(M/F) gender
+            
+            - nome utente username
+            - password  password
 
-Pagina che riceve i dati
-    register-user.php
+        Pagina che riceve i dati
+            register-user.php
 
 -->
 
@@ -46,55 +46,66 @@ Pagina che riceve i dati
 
                     <div class="mb-3">
                         <label for="first_name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="first_name" id="first_name">
+                        <input type="text" class="form-control" name="first_name" id="first_name" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="last_name" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" name="last_name" id="last_name">
+                        <input type="text" class="form-control" name="last_name" id="last_name" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="birthday" class="form-label">Data di nascita</label>
-                        <input type="date" class="form-control" name="birthday" id="birthday">
+                        <input type="date" class="form-control" name="birthday" id="birthday" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="birth_place" class="form-label">Luogo di nascita</label>
-                        <input type="text" class="form-control" name="birth_place" id="birth_place">
+                        <input type="text" class="form-control" name="birth_place" id="birth_place" required>
                     </div>
 
                     <div class="mb-3">
-                    <label for="gender" class="form-label">Sesso</label>
-                            <select name="gender">
-                            <option value="">Seleziona</option>
-                            <option value="f">F</option>
-                            <option value="m">M</option>
-                        </select>
+
+                        <span>Genere</span>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="gender_M">
+                            <label class="form-check-label" for="gender_M">
+                                Maschile
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="gender_F" checked>
+                            <label class="form-check-label" for="gender_F">
+                                Femminile
+                            </label>
+                        </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="nome_utente" class="form-label">Nome utente</label>
-                        <input type="text" class="form-control" name="nome_utente" id="nome_utente">
+                        <label for="username" class="form-label">Nome utente</label>
+                        <input type="text" class="form-control" name="username" id="username" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label">password</label>
-                        <input type="password" class="form-control" name="password" id="password">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" required>
                     </div>
 
-                    <button class="btn btn-primary btn-sm" type="submit"> Accedi </button>
+                    <button class="btn btn-primary btn-sm" type="submit"> Crea </button>
 
                 </form>
 
             </div>
 
+            <div class="col-sm-4">
+      </div>
 
 
         </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
