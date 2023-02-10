@@ -46,22 +46,22 @@ Pagina che riceve i dati
 
                     <div class="mb-3">
                         <label for="first_name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="first_name" id="Nome">
+                        <input type="text" class="form-control" name="first_name" id="first_name">
                     </div>
 
                     <div class="mb-3">
                         <label for="last_name" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" name="last_name" id="Cognome">
+                        <input type="text" class="form-control" name="last_name" id="last_name">
                     </div>
 
                     <div class="mb-3">
                         <label for="birthday" class="form-label">Data di nascita</label>
-                        <input type="date" class="form-control" name="birthday" id="data di nascita">
+                        <input type="date" class="form-control" name="birthday" id="birthday">
                     </div>
 
                     <div class="mb-3">
                         <label for="birth_place" class="form-label">Luogo di nascita</label>
-                        <input type="text" class="form-control" name="birth_place" id="Luogo di nascita">
+                        <input type="text" class="form-control" name="birth_place" id="birth_place">
                     </div>
 
                     <div class="mb-3">
@@ -75,7 +75,7 @@ Pagina che riceve i dati
 
                     <div class="mb-3">
                         <label for="nome_utente" class="form-label">Nome utente</label>
-                        <input type="text" class="form-control" name="nome_utente" id="nome utente">
+                        <input type="text" class="form-control" name="nome_utente" id="nome_utente">
                     </div>
 
                     <div class="mb-3">
