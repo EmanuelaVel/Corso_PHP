@@ -12,21 +12,21 @@
 <body>
     <!-- Form di registrazione PHP
 
-usare bootstrap
-usare filter_input per ottenere le informazioni
+        usare bootstrap
+        usare filter_input per ottenere le informazioni
 
-create-user.php
-    - nome first_name 
-    - cognome last_name
-    - data di nascita birthday
-    - luogo di nascita birth_place
-    - sesso(M/F) gender
-    
-    - nome utente username
-    - password  password
+        create-user.php
+            - nome first_name 
+            - cognome last_name
+            - data di nascita birthday
+            - luogo di nascita birth_place
+            - sesso(M/F) gender
+            
+            - nome utente username
+            - password  password
 
-Pagina che riceve i dati
-    register-user.php
+        Pagina che riceve i dati
+            register-user.php
 
 -->
 
