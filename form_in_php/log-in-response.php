@@ -7,7 +7,7 @@
  */
 
 
-$test = filter_input(INPUT_GET, 'email' ,  FILTER_VALIDATE_EMAIL);
+$test = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
 // == === è lo stesso significato javascript
 if($test === false) {
