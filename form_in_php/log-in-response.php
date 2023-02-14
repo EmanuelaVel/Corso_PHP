@@ -1,18 +1,24 @@
 <?php
 
 /**
- *  $ -< variabile  
- * " "/' '  -> stringa
+ *  $ -> variabile  
+ * " " / ' '  ->  stringa
  * CICCIO 
  */
 
+ //echo $_POST['email'];
 
 $test = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-// == === è lo stesso significato javascript
 if($test === false) {
-    echo "\nla mail non è valida\n";
+    echo "\nL'email non è valida\n";
 } else {
-    echo "grazie la tua email è valida: $test";
+    echo "Grazie la tua email è valida: $test";
 }
+
+
+echo"<pre>";
+print_r($_POST);
+echo"</pre>";
+
 ?>
