@@ -15,29 +15,36 @@
   <main class="container">
 
     <section class="row">
+
+      <div class="col-sm-4">
+      </div>
+
       <div class="col-sm-4">
 
-      </div>
-      <div class="col-sm-4">
         <form class="mt-1 mt-md-5" action="log-in-response.php" method="POST">
+
           <div class="mb-3">
-            <label for="email" class="form-label">email</label>
+            <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" name="email" id="email">
           </div>
+
           <div class="mb-3">
-            <label for="password" class="form-label">password</label>
-            <input type="password" id="password" name="password" class="form-control">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
           </div>
-          <button class="btn btn-primary btn-sm" type="submit"> Accedi </button>
+
+          <button class="btn btn-primary btn-sm" type="submit">Accedi</button>
+        
         </form>
+
       </div>
 
       <div class="col-sm-4">
       </div>
+
     </section>
 
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
-
 </html>
