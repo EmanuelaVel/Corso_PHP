@@ -46,22 +46,22 @@
 
                     <div class="mb-3">
                         <label for="first_name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" name="first_name" id="first_name" required>
+                        <input type="text" class="form-control" name="first_name" id="first_name">
                     </div>
 
                     <div class="mb-3">
                         <label for="last_name" class="form-label">Cognome</label>
-                        <input type="text" class="form-control" name="last_name" id="last_name" required>
+                        <input type="text" class="form-control" name="last_name" id="last_name">
                     </div>
 
                     <div class="mb-3">
                         <label for="birthday" class="form-label">Data di nascita</label>
-                        <input type="date" class="form-control" name="birthday" id="birthday" required>
+                        <input type="date" class="form-control" name="birthday" id="birthday">
                     </div>
 
                     <div class="mb-3">
                         <label for="birth_place" class="form-label">Luogo di nascita</label>
-                        <input type="text" class="form-control" name="birth_place" id="birth_place" required>
+                        <input type="text" class="form-control" name="birth_place" id="birth_place">
                     </div>
 
                     <div class="mb-3">
@@ -82,13 +82,13 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="username" class="form-label">Nome utente</label>
-                        <input type="text" class="form-control" name="username" id="username" required>
+                        <label for="email" class="form-label">email</label>
+                        <input type="text" class="form-control" name="email" id="email">
                     </div>
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" name="password" id="password" required>
+                        <input type="password" class="form-control" name="password" id="password">
                     </div>
 
                     <button class="btn btn-primary btn-sm" type="submit"> Crea </button>
