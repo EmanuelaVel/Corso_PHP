@@ -25,5 +25,29 @@
 - [FILTER_TYPE](https://www.php.net/manual/en/filter.filters.php)
 
 
+curl http://localhost/corso_php_mysql_2223/form_in_php/log-in-response.php?6=sbagliata
+
+
+### Esercitazione Form di registrazione PHP
+
+[Indicazioni su GDrive](https://docs.google.com/document/d/1BhIxn2iPE7wDeC9XsIIngQUCE5-YEo9LZZc6OqII6GU/edit?usp=sharing)
 
 curl http://localhost/corso_php_mysql_2223/form_in_php/log-in-response.php?email=sbagliata
+
+https://www.w3schools.com/sql/sql_injection.asp
+https://github.com/minimaxir/big-list-of-naughty-strings
+
+## Estensioni per php
+
+PHP Intelephense
+https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client
+
+
+## esercitazione php 02
+
+Validazione e test
+
+Scrivere due classi *ValidateRequired* e *ValidateDate*
+
+- ValidateRequired campo obbligatorio, quindi non deve essere vuoto
+- ValidateDate stabilisce se la data inserita è una data esistente nel formato gg/mm/aaaa e restituisce false se non una data valida
