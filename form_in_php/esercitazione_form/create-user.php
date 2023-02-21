@@ -68,7 +68,7 @@
                         <label for="birth_place" class="form-label">Luogo di nascita</label>
 
                         <select name="birth_place" id="birth_place">
-                        <option value="">Seleziona</option>
+                            <option value="">Seleziona</option>
                             <option value="ag">agrigento</option>
                             <option value="al">alessandria</option>
                             <option value="an">ancona</option>
@@ -180,35 +180,36 @@
                             <option value="vi">vicenza</option>
                             <option value="vt">viterbo</option>
                         </select>
+                    </div>
 
-                        <div class="mb-3">
+                    <div class="mb-3">
 
-                            <span>Genere</span>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="gender_M">
-                                <label class="form-check-label" for="gender_M">
-                                    Maschile
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gender" id="gender_F" checked>
-                                <label class="form-check-label" for="gender_F">
-                                    Femminile
-                                </label>
-                            </div>
+                        <span>Genere</span>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="gender_M">
+                            <label class="form-check-label" for="gender_M">
+                                Maschile
+                            </label>
                         </div>
-
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Nome utente</label>
-                            <input type="text" class="form-control" name="username" id="username">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="gender_F" checked>
+                            <label class="form-check-label" for="gender_F">
+                                Femminile
+                            </label>
                         </div>
+                    </div>
 
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" id="password">
-                        </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nome utente</label>
+                        <input type="text" class="form-control" name="username" id="username">
+                    </div>
 
-                        <button class="btn btn-primary btn-sm" type="submit">Crea</button>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" id="password">
+                    </div>
+
+                    <button class="btn btn-primary btn-sm" type="submit">Crea</button>
 
                 </form>
 
@@ -217,10 +218,11 @@
             <div class="col-sm-4">
             </div>
 
-
         </section>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" 
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
 class ValidateData {
 // is valid è un metodo
     public function isValid(string $date) : bool {
-// explode è una fuznione
+// explode è una funzione
         $parametriData = explode("-", $date);
         $anno = $parametriData[0];
         $mese = $parametriData[1];
