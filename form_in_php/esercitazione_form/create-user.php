@@ -59,12 +59,12 @@ $isValidatedNameClass = $validatorName->isValid($_POST['first_name']) ? '' : ' i
  
 
 
-//se metto la classe is-invalid il messaggio di errore verrà visualizzato e comparirà il bordo rosso 
+<!-- //se metto la classe is-invalid il messaggio di errore verrà visualizzato e comparirà il bordo rosso 
 //altrimenti non verrà visualizzato
 
 
-// la validazione dei dati la fare mo solo nel metodo post, dopo
--->
+// la validazione dei dati la fare mo solo nel metodo post, dopo -->
+
 
     <header class="bg-light p-1">
         <h1 class="display-6">Form di registrazione PHP</h1>
