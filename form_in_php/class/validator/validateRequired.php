@@ -1,6 +1,6 @@
 <?php
 /*
-   - Preservare il valore iniziale valido (e ripulito-sanitizer) del campo di testo
+   - [x] Preservare il valore iniziale valido (e ripulito-sanitizer) del campo di testo
    - visualizzare il messaggio di errore per il singolo campo
    - sapere se c'è un errore ** is valid() **
    - ripulire e controllare i valori (sicurezza)
@@ -9,15 +9,22 @@
 */
 
 class ValidateRequired implements Validable {
+
 /** @var string rappresenta il valore immesso nel Form ripulito //non è un annotazione, non svolgerà nulla */
-   private $value = '';
+private $value;
+private $message;
+private $hasMessage;
+/* se il valore è valido e se devo visualizzaare il messaggio */
+private $valid;
 
 //con   suggerimento
-public function __construct() {
-   $this->value = '';
+public function __construct($default_value='', $message='è obbligatorio') {
+   $this->value =true;
+   $this-> valid = true;
+   $this->message = $message;
+
+  // $this->value = 'sono il valore predefinito';
 }
-
-
 
  public function isValid($value)
  {
@@ -26,7 +33,7 @@ public function __construct() {
     // posso scrivere tutto in una riga trim(strip_tag($value))
     $strip_tag = strip_tags($value);
     $valueWidoutSpace = trim($strip_tag);
-
+var_dump($this-> valid);
     if($valueWidoutSpace == ''){
         return false;
     }
@@ -36,16 +43,23 @@ public function __construct() {
     
  }
 
-//  public function message()
-//  {
-//     return 'campo obbligatorio';
-//  }
-
 
 //fun  suggerimento
 public function getValue()
 {
    return $this->value;    
+}
+
+ public function getMessage()
+ {
+    return $this->message;
+ }
+
+ public function getValid()
+ {
+   return $this->valid;
+ }
+
 
 }
-}
+?>

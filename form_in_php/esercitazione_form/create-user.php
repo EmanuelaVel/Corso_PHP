@@ -1,76 +1,34 @@
 <?php
-
+//spegenre errori a livello di server e anche runtime(durante esecuzione) 
 //Per visualizzare gli errori
 error_reporting(E_ALL);   // E_ALL -> per accendere tutti gli errori
 //error_reporting(0);  // 0  ->  per spegnere tutti gli errori, l'errore c'è ma non lo fa vedere
+
 echo "<pre>" . print_r($_POST, true) . "</pre>";
 
 require "../class/validator/Validable.php";
 require "../class/validator/ValidateRequired.php";
 
-print_r($_POST);
-print_r($_SERVER['REQUEST_METHOD']);
+//print_r($_POST);
 
+$validator_Name =  new ValidateRequired('', 'Il nome è obbligatorio');
+
+var_dump($validator_Name->getValid());
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "dati inviati adesso li devo controllare";
 
-    // $validator_Name =  new ValidateRequired();
-    // $validated_Name = $validator_Name->isValid($_POST['first_name']);
-    // $isValid_Name_Class =  $validator_Name->isValid($_POST['first_name']) ? '' : ' is-invalid';
-
-    // $validator_Last_name =  new ValidateRequired();
-    // $validated_Last_name = $validator_Last_name->isValid($_POST['last_name']);
-    // $isValid_Last_name_Class =  $validator_Last_name->isValid($_POST['last_name']) ? '' : ' is-invalid';
-
-    // $validator_Birthday =  new ValidateRequired();
-    // $validated_Birthday = $validator_Birthday->isValid($_POST['birthday']);
-    // $isValid_Last_Birthday_Class =  $validator_Birthday->isValid($_POST['birthday']) ? '' : ' is-invalid';
-
-    // $validator_Birth_place =  new ValidateRequired();
-    // $validated_Birth_place = $validator_Birth_place->isValid($_POST['birth_place']);
-    // $isValid_Last_Birth_place_Class =  $validator_Birth_place->isValid($_POST['birth_place']) ? '' : ' is-invalid';
-
-    // $validator_Gender =  new ValidateRequired();
-    // $validated_Gender = $validator_Gender->isValid($_POST['gender']);
-    // $isValid_Last_Gender_Class =  $validator_Gender->isValid($_POST['gender']) ? '' : ' is-invalid';
-/*
-    $validatorGender = new ValidateRequired();
-
-    var_dump(isset($_POST['gender']));
-
-    exit();
-
-    $validaterGender = $validatorGender->isValid(!isset($_POST['gender']) ? '' : $_POST['gender']);
-*/
-
-    // $validator_Username =  new ValidateRequired();
-    // $validated_Username = $validator_Username->isValid($_POST['username']);
-    // $isValid_Last_Username_Class =  $validator_Username->isValid($_POST['username']) ? '' : ' is-invalid';
-/*
-    $validator_Username =  new ValidateMail();
-    $validated_Username = $validator_Username->isValid($_POST['username']);
-    $isValid_Last_Username_Class =  $validator_Username->isValid($_POST['username']) ? '' : ' is-invalid';
-*/
-
-
-    // $validator_Password =  new ValidateRequired();
-    // $validated_Password = $validator_Password->isValid($_POST['password']);
-    // $isValid_Last_Password_Class =  $validator_Password->isValid($_POST['password']) ? '' : ' is-invalid';
-
-
-
-    //come associo la validazione a un campo /input/controllo
-    //first_name -> required
-    // birthday -> required|validDate
+    $validated_Name = $validator_Name->isValid($_POST['first_name']);
 }
 
 
 /* Questo script viene eseguito quando visualizzo per la "prima volta" il FORM di registrazione*/
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $isValid_Name_Class = '';
+    //$validatedName = false; per non far scattare il warning oppure usare isset
 }
 
+
+?>
 
 ?>
 <!DOCTYPE html>
@@ -87,85 +45,66 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 <body>
 
     <header class="bg-light p-1">
-        <h1 class="display-6">Form di registrazione PHP</h1>
+        <h1 class="display-6">Applicazione demo</h1>
     </header>
 
     <main class="container">
 
         <section class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+                ciccio
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-6">
 
-                <form class="mt-1 mt-md-5" action="register-user.php" method="POST">
+                <form class="mt-1 mt-md-5" action="create-user.php" method="POST">
 
                     <div class="mb-3">
                         <label for="first_name" class="form-label">Nome</label>
-
-                        <input type="text" value="<?= $_POST['first_name'] ?>"  class="form-control <?php echo $isValid_Name_Class ?>" name="first_name" id="first_name">
-                       <!-- <input type="text" value="</?php echo $_POST['first_name'] ?>" class="form-control </?php echo $isValidNameClass ?>" name="first_name" id="first_name" > -->
-                       
+                        <input type="text" value="<?= $validator_Name->getValue() ?>" class="form-control <?php echo !$validator_Name->getValid() ? 'is-invalid' : '' ?>" name="first_name" id="first_name">
+                        <!-- <input type="text" value="</?php echo $_POST['first_name'] ?>" class="form-control </?php echo $isValidNameClass ?>" name="first_name" id="first_name" > -->
                         <!--   </?=   scorciatoia per echo (senza /) -->
+
                         <!-- ToDo: mettere is-invalid -->
-
-                       <!-- </?php
-                        // Caso 1
-                        // GET isset($validated_Name) false 
-                        // first_name = 'roberto' => !$validated_Name = 'roberto' | isset($validated_Name) true && false
-                        // POST isset($validated_Name) true
-
-                        // Caso 2
-                        // GET isset($validated_Name) false 
-                        // first_name = '' => $validated_Name = false
-                        // POST isset($validated_Name) true && !false | isset($validated_Name) true && true
-
-                        if (isset($validated_Name) && !$validated_Name) { ?>
+                        <?php
+                        var_dump($validator_Name->getValid());
+                        // GET isset($validated_Name) prova a usare una variabile e se non esiste(false) non dà warning
+                        //POST isset($validated_Name) in questo caso dà true, nel nostro caso
+                        if ($validator_Name->getValid()) { ?>
                             <div class="invalid-feedback">
-                                il nome è obbligatorio
+                                <?php echo $validator_Name->getMessage() ?>
                             </div>
-                        </?php } ?>
-                      -->
+                        <?php } ?>
                     </div>
 
                     <div class="mb-3">
                         <label for="last_name" class="form-label">Cognome</label>
-                        <input type="text" class="form-control"  name="last_name" id="last_name">
-                        <!-- </?php echo $isValid_Last_name_Class ?> -->
-                         <!--</?php
+                        <input type="text" class="form-control <?php echo $isValid_Last_name_Class ?>" name="last_name" id="last_name">
+                        <?php
                         if (isset($validated_Last_name) && !$validated_Last_name) { ?>
-
                             <div class="invalid-feedback">errore
                             </div>
-
-                        </?php } ?>
-                         -->
+                        <?php } ?>
                     </div>
 
                     <div class="mb-3">
                         <label for="birthday" class="form-label">Data di nascita</label>
-                        <input type="date" class="form-control"  name="birthday" id="birthday">
-                        <!-- </?php echo $isValid_Birthday_Class ?> -->
-                       <!--   </?php
+                        <input type="date" class="form-control <?php echo $isValid_Birthday_Class ?>" name="birthday" id="birthday">
+                        <?php
                         if (isset($validated_Birthday) && !$validated_Birthday) { ?>
                             <div class="invalid-feedback">errore
                             </div>
-                        </?php } ?>
-                        -->    
+                        <?php } ?>
                     </div>
 
                     <div class="mb-3">
                         <label for="birth_place" class="form-label">Luogo di nascita</label>
-                        <input type="text" class="form-control"  name="birth_place" id="birth_place">
-                        <!-- </?php echo $isValid_birth_place_Class ?> -->
-                         <!--   </?php
+                        <input type="text" class="form-control <?php echo $isValid_Birth_place ?> " name="birth_place" id="birth_place">
+                        <?php
                         if (isset($validated_Birth_place) && !$validated_Birth_place) { ?>
                             <div class="invalid-feedback">errore
                             </div>
-                        </?php } ?>
-                        -->  
-                        <div class="invalid-feedback">errore
-                        </div>
+                        <?php } ?>
                     </div>
 
                     <!-- <div class="mb-3">
@@ -286,65 +225,66 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         <div class="invalid-feedback">errore</div>
                     </div> -->
 
-
                     <div class="mb-3">
                         <span>Genere</span>
                         <div class="form-check">
                             <!-- TO DO: METTERE IS VALID SU ENTRAMBI I GENERI -->
-                            <!--  echo $isValid_Name_Class  -->
-                            <input class="form-check-input" type="radio" name="gender" value="M" id="gender_M">
-                            <!--  </?php echo !$validatedGender ? 'is-invalid' : '' ?>  -->
+                            <input class="form-check-input <?php echo $isValid_Gender ?> " type="radio" name="gender" value="M" id="gender_M">
                             <label class="form-check-label" for="gender_M">
                                 Maschile
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input"   type="radio" name="gender" value="F" id="gender_F">
-                            <!-- </?php echo !$validatedGender ? 'is-invalid' : '' ?> -->
+                            <input class="form-check-input <?php echo $isValid_Gender ?> " type="radio" name="gender" value="F" id="gender_F">
                             <label class="form-check-label" for="gender_F">
                                 Femminile
                             </label>
-                            <!--</?php if ($validatedGender) : ?>
+                            <?php if ($validatedGender) : ?>
                                 <div class="invalid-feedback">errore
                                 </div>
-                            </?php endif ?>
-                            -->
-
+                            <?php endif ?>
                         </div>
+
+
+                        <?php
+                        if (isset($validatedGender) && !$validatedGender) : ?>
+                            <div class="invalid-feedback">
+                                il genere è obbligatorio
+                            </div>
+                        <?php
+                        endif //if() : endif sintassi alternativa if 
+                        ?>
+
+
+
                     </div>
 
                     <div class="mb-3">
-                        <label for="username" class="form-label"  >Nome utente</label>
-                        <!-- </?php echo $isValid_Username_Class ?> -->
-                        <input type="text" class="form-control" name="username" id="username">
-                      <!--   </?php
+                        <label for="username" class="form-label ">Nome utente</label>
+                        <input type="text" class="form-control <?php echo $isValid_Username ?>" name="username" id="username">
+                        <?php
                         if (isset($validated_Username) && !$validated_Username) { ?>
                             <div class="invalid-feedback">errore
                             </div>
-                        </?php } ?>
-                    -->
-
-                        
+                        <?php } ?>
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label" <?php echo $isValid_Name_Class ?>>Password</label>
-                        <input type="password" class="form-control" name="password" id="password">
-                          <!--   </?php
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control <?php echo $isValid_Password_Class ?> " name="password" id="password">
+                        <?php
                         if (isset($validated_Password) && !$validated_Password) { ?>
                             <div class="invalid-feedback">errore
                             </div>
-                        </?php } ?>
-                    -->
-                        
+                        <?php } ?>
                     </div>
-                    <button class="btn btn-primary btn-sm" type="submit">Crea</button>
+                    <button class="btn btn-primary btn-sm" type="submit">Registrati</button>
 
                 </form>
 
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
             </div>
 
         </section>
