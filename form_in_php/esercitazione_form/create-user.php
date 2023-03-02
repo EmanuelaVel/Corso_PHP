@@ -62,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     <div class="mb-3">
                         <label for="first_name" class="form-label">Nome</label>
                         <input type="text" value="<?= $validator_Name->getValue() ?>" class="form-control <?php echo !$validator_Name->getValid() ? 'is-invalid' : '' ?>" name="first_name" id="first_name">
+
                         <!-- <input type="text" value="</?php echo $_POST['first_name'] ?>" class="form-control </?php echo $isValidNameClass ?>" name="first_name" id="first_name" > -->
                         <!--   </?=   scorciatoia per echo (senza /) -->
 
@@ -89,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                     <div class="mb-3">
                         <label for="birthday" class="form-label">Data di nascita</label>
-                        <input type="date" class="form-control <?php echo $isValid_Birthday_Class ?>" name="birthday" id="birthday">
+                        <input type="date" class="form-control <?php echo $isValid_Birthday ?>" name="birthday" id="birthday">
                         <?php
                         if (isset($validated_Birthday) && !$validated_Birthday) { ?>
                             <div class="invalid-feedback">errore
@@ -99,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                     <div class="mb-3">
                         <label for="birth_place" class="form-label">Luogo di nascita</label>
-                        <input type="text" class="form-control <?php echo $isValid_Birth_place ?> " name="birth_place" id="birth_place">
+                        <input type="text" class="form-control <?php echo $isValid_Birth_Place ?> " name="birth_place" id="birth_place">
                         <?php
                         if (isset($validated_Birth_place) && !$validated_Birth_place) { ?>
                             <div class="invalid-feedback">errore
@@ -239,12 +240,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                             <label class="form-check-label" for="gender_F">
                                 Femminile
                             </label>
-                            <?php if ($validatedGender) : ?>
+                            <?php
+                            if (isset($validated_Gender) && !$validated_Gender) : ?>
                                 <div class="invalid-feedback">errore
                                 </div>
-                            <?php endif ?>
+                            <?php endif //if() : endif sintassi alternativa if
+                            ?>
                         </div>
-
 
                         <?php
                         if (isset($validatedGender) && !$validatedGender) : ?>
@@ -254,9 +256,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         <?php
                         endif //if() : endif sintassi alternativa if 
                         ?>
-
-
-
                     </div>
 
                     <div class="mb-3">
@@ -271,7 +270,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control <?php echo $isValid_Password_Class ?> " name="password" id="password">
+                        <input type="password" class="form-control <?php echo $isValid_Passwords ?> " name="password" id="password">
                         <?php
                         if (isset($validated_Password) && !$validated_Password) { ?>
                             <div class="invalid-feedback">errore
