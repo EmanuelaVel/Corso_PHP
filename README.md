@@ -51,3 +51,16 @@ Scrivere due classi *ValidateRequired* e *ValidateDate*
 
 - ValidateRequired campo obbligatorio, quindi non deve essere vuoto
 - ValidateDate stabilisce se la data inserita è una data esistente nel formato gg/mm/aaaa e restituisce false se non una data valida
+
+
+## esercitazione php 03 | Validazione Refactoring
+
+- Fare Il Refactoring di tutte le classi di validazione (ValidateMail,ValidateDate ecc). (Devono rispettare l'interfaccia e la logica di ValidateRequired)
+
+- Aggiungere la validazione del nome utente (*username*) deve essere una email corretta.
+  per il momento username non è obbligatorio (se non trovate una soluzione per fare entrambe le cose)
+
+
+### Classe/ Pacchetto di validazione visto su github
+
+[https://github.com/rakit/validation](https://github.com/rakit/validation)

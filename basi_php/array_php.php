@@ -44,7 +44,7 @@ $classe = array(
 echo "\nFor Loop\n";
 echo "-------------------------\n";
 
-for ($i=0; $i < count($classe); $i++) {
+for ($i=0;  $i<count($classe);  $i++) {
    $allievo = $classe[$i];
    echo $allievo['nome']."\n"; 
 }
