@@ -18,7 +18,7 @@ class ValidateDate implements Validable {
     }
     
 
-    public function message()
+    public function getMessage()
     {
         return 'data non valida';
     }
