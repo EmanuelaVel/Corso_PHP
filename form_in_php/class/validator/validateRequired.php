@@ -19,7 +19,7 @@ private $valid;
 
 //con   suggerimento
 public function __construct($default_value='', $message='è obbligatorio') {
-   $this->value =$default_value;
+   $this->value = $default_value;
    $this->valid = true;
    $this->message = $message;
 
@@ -31,16 +31,18 @@ public function __construct($default_value='', $message='è obbligatorio') {
     // '    '        => ''
     
     // posso scrivere tutto in una riga trim(strip_tag($value))
+    // strip_tags() — Elimina i tag HTML e PHP da una stringa
     $strip_tag = strip_tags($value);
+    //trim() — Elimina gli spazi bianchi (o altri caratteri) dall'inizio e dalla fine di una stringa
     $valueWidoutSpace = trim($strip_tag);
+    
     if($valueWidoutSpace == ''){
       $this->valid = false;
         return false;
     }
     $this->valid = true;
     $this->value = $valueWidoutSpace;
-    return $valueWidoutSpace;    
-    
+    return $valueWidoutSpace;     
  }
 
 

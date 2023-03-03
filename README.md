@@ -1,16 +1,14 @@
 # PHP
 
-
 ## Metodi HTTP
 
 [Metodi HTTP](https://it.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Messaggio_di_richiesta)
 
-
 - **action** dove verranno elaborati i dati inviati dal form
 - **method** il metodo della richiesta HTTP
-    - GET Ottenere informazioni
+    - **GET** Ottenere informazioni
         - [**query-string**](https://it.wikipedia.org/wiki/Query_string) : Formato con cui passo dei parametri via GET
-    - POST Inserire nuove informazioni
+    - **POST** Inserire nuove informazioni
 - **attributo name di input** : Permette di etichettare e passare un valore
 
 

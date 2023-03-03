@@ -106,7 +106,7 @@ $errore = 0;
 foreach ($_POST as $i => $value) {
     // echo $i;
     if ($i == 'birthday') {
-        $dataNascita = new ValidateData();
+        $dataNascita = new ValidateDate();
         $verificaDataNascita = $dataNascita->isValid($value);
 
         if ($verificaDataNascita == false) {
