@@ -43,9 +43,8 @@ foreach ($testCases as $key => $test){
     $expected = $test['expected'];
 
     $v = new ValidateDate();
-    
     if($v->isValid($input) != $expected){
-        echo "\nTest mumero $key non superato mi aspettavo\n";
+        echo "\nTest mumero $key non superato, mi aspettavo\n";
         var_dump($expected);
         echo "\nma ho trovato\n";
         var_dump($v->isValid($input));

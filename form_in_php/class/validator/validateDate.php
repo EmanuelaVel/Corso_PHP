@@ -2,25 +2,53 @@
 
 class ValidateDate implements Validable {
 
-    public function isValid($value)
-    {
-        $sanitize = trim(strip_tags($value));
-        $dt = DateTime::createFromFormat('d/m/Y',$sanitize);
-        if($dt && $dt->format('d/m/Y') === $sanitize) {
+    private $date;
+    private $message;
+    private $hasMessage;
+    private $valid;
 
-            return $dt->format('d/m/Y');
-        
-        }else{
-        
-            return false;
-        
-        };
+    public function __construct($default_value = '', $message='è obbligatorio') {
+        $this->date = $default_value;
+        $this->message = $message;
+        $this->valid = true;
     }
+
+
+    
+    public function isValid($date)
+    {
+        // $result = trim(strip_tags($value));
+        
+        // $d = DateTime::createFromFormat('d/m/Y', $result);
+      
+        // if($d->format('d/m/Y') === $result) {
+        //     //echo "$value date is valid.";
+        //     return $d->format('d/m/Y');
+            
+        // } else {
+        //     return $result;
+        // }
+
+        $strip_tag = strip_tags($date);
+        $valueWithoutSpace = trim($strip_tag);
+        if($valueWithoutSpace == '') {
+            $this->valid = false;
+            return false;
+        }
+        $this->date = $valueWithoutSpace;
+        return $valueWithoutSpace;
+    }
+
     
 
-    public function getMessage()
-    {
-        return 'data non valida';
+    public function getMessage() {
+        return $this->message;
+    }
+    public function getValid() {
+        return $this->valid;
+    }
+    public function getValue() {
+        return $this->date;
     }
 
 }

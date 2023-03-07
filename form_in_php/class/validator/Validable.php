@@ -6,8 +6,7 @@ interface Validable {
     // public function message();
     public function getMessage();
     public function getValid();
-
-
-
+    public function getValue();
     
 }
+?>

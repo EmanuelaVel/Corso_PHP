@@ -2,7 +2,7 @@
 
 // $files = scandir("./form_in_php/class/validator");
 // print_r($files);
-// require "./form_in_php/class/validator/ValidateMail.php";
+require "./form_in_php/class/validator/Validable.php";
 require "./form_in_php/class/validator/ValidateMail.php";
 
 $emails = [

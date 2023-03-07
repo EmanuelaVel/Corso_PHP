@@ -19,13 +19,16 @@ echo "</pre>";
 //echo "<strong>" . $_POST['email'] . "</strong>";
 
 
-/**
- *  $ -> variabile  
- * " " / ' '  ->  stringa
- * CICCIO 
+/*
+  $ -> variabile  
+  "" / ''  ->  stringa
+  CICCIO -> costante
  */
 
+ 
 //echo $_POST['email'];
+
+
 
 
 $test = filter_input(INPUT_GET,'email',FILTER_VALIDATE_EMAIL);

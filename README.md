@@ -1,8 +1,10 @@
 # PHP
 
+
 ## Metodi HTTP
 
 [Metodi HTTP](https://it.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Messaggio_di_richiesta)
+
 
 - **action** dove verranno elaborati i dati inviati dal form
 - **method** il metodo della richiesta HTTP
@@ -62,3 +64,12 @@ Scrivere due classi *ValidateRequired* e *ValidateDate*
 ### Classe/ Pacchetto di validazione visto su github
 
 [https://github.com/rakit/validation](https://github.com/rakit/validation)
+
+<br>
+### Estensione per database
+```
+Name: MySQL
+Id: cweijan.vscode-mysql-client2
+Description: Database manager for MySQL/MariaDB, PostgreSQL, SQLite, Redis and ElasticSearch
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2
+```
