@@ -17,14 +17,20 @@ $province_object = json_decode($province_string);
 //$provincia = oggetto dell'array
 //array_map(funtion($elemento_array){}, array da cambiare)
  $province_array = array_map(function($provincia) {
-    return $provincia -> nome;
+    return 
+    [
+        'nome' => $provincia -> nome,
+        'sigla' => $provincia -> sigla,
+        'regione' => $provincia -> regione
+    ];
 
  }, $province_object);
 
- //var_dump($province_array);
+ var_dump($province_array);
+
 
 $sigle_array = array_map(function($provincia) {
-    return $provincia -> sigla;
+    return $provincia->sigla;
 }, $province_object);
 
 //var_dump($sigle_array);
@@ -39,7 +45,7 @@ sort($sigle_array);
 
 $dsn = "mysql: host.=".DB_HOST.";dbname=".DB_NAME;
 
-//inseriamo le province nel db
+//inseriamo le province nella tabella
 try {
     //connection between PHP and a database server
     $conn = new PDO($dsn,DB_USER,DB_PASSWORD);
@@ -48,12 +54,22 @@ try {
     $conn -> query('TRUNCATE TABLE province');
 
     //per ogni elemento $provincia dell array $province_array
-    foreach ($province_array as $provincia) {
-    $provincia = addslashes($provincia);
+    foreach ($province_array as $citta => $provincia) {
+
+    $nome_provincia =addslashes( $provincia ['nome']);
+    $sigla_provincia =addslashes($provincia ['sigla']);
 
     
-    $sql = "INSERT INTO province(nome) VALUES('$provincia');";
-    echo $sql ."\n";
+  //  $stringa = implode("," , $provincia);
+   
+    //
+    // $nome_provincia = substr($stringa,-2);
+    // $sigla_provincia = substr($stringa, );
+    
+    //var_dump($stringa);
+
+    $sql = "INSERT INTO province(nome, sigla) VALUES('$nome_provincia', '$sigla_provincia');";
+   echo $sql ."\n";
     $conn -> query($sql);
     }
 }catch(\Throwable $th) {

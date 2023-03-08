@@ -8,12 +8,10 @@ $province_string = file_get_contents('province.json');
 //$province_string = file_get_contents('./province.json');
 
 $province_object = json_decode($province_string); 
-
 //var_dump($province_object);
 
 //map() funzione degli array che serve a trasformare un array in un altro
 //un array fatto solo di regioni
-// array_map();
 $regioni_array = array_map(function($provincia) {
     return $provincia -> regione;
 }, $province_object);

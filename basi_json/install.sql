@@ -8,16 +8,10 @@ CREATE TABLE regioni (
 	PRIMARY KEY (regione_id)
 	) ;
 	
-	insert into regioni (nome) VALUE ('Abruzzo');
+INSERT INTO regioni (nome) VALUE ('Abruzzo');
 	
-	select * from regioni;
+SELECT * FROM regioni;
 
-	INSERT INTO regioni(nome) VALUES('Valle d\'Aosta/Vallée d\'Aoste');
+INSERT INTO regioni(nome) VALUES('Valle d\'Aosta/Vallée d\'Aoste');
 
 
-	CREATE TABLE province (
-	province_id INT NOT NULL AUTO_INCREMENT,
-	nome VARCHAR (255) NOT NULL,
-	sigla VARCHAR (2) NOT NULL,
-	PRIMARY KEY (province_id)
-	);
