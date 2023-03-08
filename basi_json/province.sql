@@ -17,5 +17,29 @@ CREATE TABLE province (
 	);
 
 
-	SELECT regione_id from regioni
-	where nome = 'marche';
+	SELECT regione_id FROM regioni
+	WHERE nome = 'Marche';
+
+
+	-- Agrigento --> Sicilia
+	/*
+	{
+    "nome": "Agrigento",
+    "sigla": "AG",
+    "regione": "Sicilia"
+	"regione_id": 15
+   },
+  	*/
+SELECT regione_id FROM regioni WHERE nome ='Sicilia';
+-- regione 15 
+
+
+/*
+$conn -> query("SELECT regione_id FROM regioni WHERE nome ='$regione';");
+
+//viene restituioto un oggetto da cui possiamo ottentere risultato
+$regione_id= $pdo_stn->fetchColumn();
+print_r($regione_id);
+*/
+INSERT INTO province (nome, sigla, regione_id)
+VALUES('Agrigento', 'AG', 15)

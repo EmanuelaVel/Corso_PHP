@@ -1,8 +1,7 @@
 <?php
 include "./config.php";
 
-// file_get_contents('file che voglio aprire')
-//è una sTRINGA
+// file_get_contents('file che voglio aprire') //è una STRINGA
 $province_string = file_get_contents('province.json');
 //var_dump($province_string)
 
@@ -22,25 +21,14 @@ $province_object = json_decode($province_string);
         'nome' => $provincia -> nome,
         'sigla' => $provincia -> sigla,
         'regione' => $provincia -> regione
+       // 'regione_id' => $provincia -> regione
+
     ];
 
  }, $province_object);
 
  var_dump($province_array);
-
-
-$sigle_array = array_map(function($provincia) {
-    return $provincia->sigla;
-}, $province_object);
-
-//var_dump($sigle_array);
-
-
-sort($province_array);
-//var_dump($province_array);
-
-sort($sigle_array);
-//var_dump($sigle_array);
+//cerca nella tabella regioni quella che sia chiam a"" e predni id
 
 
 $dsn = "mysql: host.=".DB_HOST.";dbname=".DB_NAME;
@@ -56,19 +44,16 @@ try {
     //per ogni elemento $provincia dell array $province_array
     foreach ($province_array as $citta => $provincia) {
 
-    $nome_provincia =addslashes( $provincia ['nome']);
+    $nome_provincia =addslashes($provincia ['nome']);
     $sigla_provincia =addslashes($provincia ['sigla']);
+    $nome_regione  =addslashes($provincia ['regione']); 
 
-    
-  //  $stringa = implode("," , $provincia);
-   
-    //
-    // $nome_provincia = substr($stringa,-2);
-    // $sigla_provincia = substr($stringa, );
-    
-    //var_dump($stringa);
+    $query=  "SELECT regione_id FROM regioni WHERE nome = '$nome_regione';";
 
-    $sql = "INSERT INTO province(nome, sigla) VALUES('$nome_provincia', '$sigla_provincia');";
+    $id_regione = $conn ->query($query)->fetchColumn(); 
+  
+
+    $sql = "INSERT INTO province(nome, sigla, regione_id) VALUES('$nome_provincia', '$sigla_provincia', '$id_regione');";
    echo $sql ."\n";
     $conn -> query($sql);
     }

@@ -1,7 +1,6 @@
 <?php
 include "./config.php";
 
-//&& esegui dopo
 
 // file_get_contents('file che voglio aprire')
 $province_string = file_get_contents('province.json');
@@ -56,5 +55,8 @@ print_r($regioni_unique);
 //decodificare
 //creare tabella con nome-Stringa, sigla-Char(2)/Varchar, regione
 //invece di regione devi fare regione_id e metterci id giusto, facendo una query e leggere risultato 
+
+//08/03
+//cerca nella tabella regioni quella che sia chiam a"" e predni id
 
 ?>
